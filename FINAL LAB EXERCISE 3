@@ -47,3 +47,35 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
+// Java/Kotlin Code 
+package com.example.exercise3;
+
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
+import android.widget.Spinner;
+
+public class MainActivity extends AppCompatActivity {
+
+    String[] countries = {"Philippines", "Japan", "USA", "UK", "Canada"};
+    String[] options = {"Option 1", "Option 2", "Option 3", "Option 4", "Option 5"};
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        AutoCompleteTextView autoCountries = findViewById(R.id.autoCountries);
+        Spinner spinner = findViewById(R.id.spinnerOptions);
+
+        ArrayAdapter<String> countryAdapter =
+                new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, countries);
+        autoCountries.setAdapter(countryAdapter);
+
+        ArrayAdapter<String> spinnerAdapter =
+                new ArrayAdapter<>(this, android.R.layout.simple_spinner_item, options);
+        spinnerAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(spinnerAdapter);
+    }
+}
