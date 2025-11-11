@@ -51,3 +51,58 @@
         app:layout_constraintEnd_toEndOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+// Java/Kotlin Code
+package com.example.exercise4;
+
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ToggleButton;
+import android.widget.Toast;
+
+public class MainActivity extends AppCompatActivity {
+
+    Button btnStandard;
+    ImageButton btnImage;
+    ToggleButton toggleButton;
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+
+        btnStandard = findViewById(R.id.btnStandard);
+        btnImage = findViewById(R.id.btnImage);
+        toggleButton = findViewById(R.id.toggleButton);
+
+        // Standard Button click
+        btnStandard.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MainActivity.this, "Standard Button Clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // ImageButton click
+        btnImage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Toast.makeText(MainActivity.this, "ImageButton Clicked", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        // ToggleButton change
+        toggleButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(toggleButton.isChecked()){
+                    Toast.makeText(MainActivity.this, "Toggle is ON", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(MainActivity.this, "Toggle is OFF", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
+}
