@@ -13,5 +13,4 @@
         android:text="Welcome to Android UI"
         android:textSize="20sp"
         android:textStyle="bold" />
-
 </LinearLayout>
